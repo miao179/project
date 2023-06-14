@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="sql.properties"/>
+    <!--下划线自动映射驼峰字段-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${sql.jdbc.driver}"/>
+                <property name="url" value="${sql.jdbc.url}"/>
+                <property name="username" value="${sql.jdbc.username}"/>
+                <property name="password" value="${sql.jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+<!--        <mapper resource="mapper/VideoMapper.xml"/>-->
+<!--        <mapper class="com.mjw.miao.mapper.VideoMapper"/>-->
+        <package name="com.mjw.miao.mapper"></package>
+    </mappers>
+</configuration>
